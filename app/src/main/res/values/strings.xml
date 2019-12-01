@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">UberFood</string>
+    <string name="hint1">Email</string>
+    <string name="hint2">Password</string>
+    <string name="signinbtn">SIGN IN</string>
+    <string name="SignIn">Sign In</string>
+    <color name="bgcolor">#ECECEC</color>
+    <color name="signInBtn">#FF5722</color>
+
+
+</resources>
