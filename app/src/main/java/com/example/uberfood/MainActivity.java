@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth  = FirebaseAuth.getInstance();
-    ArrayList<Menu> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
+        
         final String TAG = "testFireStore";
 
         String email = ((TextView)findViewById(R.id.mail)).getText().toString();
@@ -50,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI(user);
+
                             } else {
 
                                 Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
                                 updateUI(null);
                             }
 
-                            // ...
+
                         }
                     });
 
