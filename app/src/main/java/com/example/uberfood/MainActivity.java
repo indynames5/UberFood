@@ -2,6 +2,7 @@ package com.example.uberfood;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,22 +15,28 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth  = FirebaseAuth.getInstance();
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    RecyclerView recyclerView;
+    ArrayList<Menu> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+        recyclerView = (RecyclerView) findViewById(R.id.myRecycle_view);
+
 
     }
 
     public void signIn(View view){
-        Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
         final String TAG = "testFireStore";
 
         String email = ((TextView)findViewById(R.id.mail)).getText().toString();
@@ -50,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
                                 updateUI(user);
                             } else {
 
-                                Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
                                 updateUI(null);
                             }
 
-                            // ...
+
                         }
                     });
 
@@ -76,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         if(account != null){
             Toast.makeText(this,"U Signed In successfully",Toast.LENGTH_LONG).show();
         }else {
-            Toast.makeText(this,"U Didnt signed in",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"U Didn't signed in",Toast.LENGTH_LONG).show();
         }
     }
 

@@ -4,6 +4,10 @@
     <string name="hint2">Password</string>
     <string name="signinbtn">SIGN IN</string>
     <string name="SignIn">Sign In</string>
+    <string name="name">Name : </string>
+    <string name="Pic">Image</string>
+    <string name="check">check</string>
+    <string name="rate">Rate : </string>
     <color name="bgcolor">#ECECEC</color>
     <color name="signInBtn">#FF5722</color>
 
